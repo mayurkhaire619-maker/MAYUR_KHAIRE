@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khaire Mayur Valmik | Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #edf2f7;
+            --text-main: #2d3748;
+            --text-light: #718096;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f7fafc;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .contact-info a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--white);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 15px;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Experience & Education */
+        .item {
+            margin-bottom: 25px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .item-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2c5282;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .item-subtitle {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .achievements-box {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Table Styling for Education */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--accent-color);
+            text-align: left;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        /* Print Button */
+        .no-print {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .btn {
+            background: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { background: white; }
+            .container { box-shadow: none; margin: 0; max-width: 100%; }
+        }
+
+        @media (max-width: 600px) {
+            .item-header { flex-direction: column; }
+            header { padding: 20px; }
+            section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="no-print">
+    <button class="btn" onclick="window.print()">Download as PDF / Print CV</button>
+</div>
+
+<div class="container">
+    <!-- Header -->
+    <header>
+        <h1>Khaire Mayur Valmik</h1>
+        <p style="margin-bottom: 15px; color: #a0aec0;">Data Analyst | ETL Developer | Visualization Expert</p>
+        <div class="contact-info">
+            <span><i class="fas fa-phone"></i> +91 7972310689</span>
+            <a href="mailto:mayurvalmik.khaire@gmail.com"><i class="fas fa-envelope"></i> mayurvalmik.khaire@gmail.com</a>
+            <span><i class="fas fa-map-marker-alt"></i> India</span>
+        </div>
+    </header>
+
+    <!-- Summary -->
+    <section>
+        <h2><i class="fas fa-user"></i> Professional Summary</h2>
+        <p class="summary-text">
+            Data Analyst with expertise in <strong>Azure SQL, Databricks, Power BI, and Python</strong>. 
+            Proven track record in automating ETL pipelines, building interactive dashboards, and delivering 
+            strategic insights for Sales, Supply Chain, and Marketing. Experienced in driving 
+            efficiency, cost savings, and revenue growth through data-driven decision-making.
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section>
+        <h2><i class="fas fa-tools"></i> Technical Expertise</h2>
+        <div class="skills-container">
+            <span class="skill-tag">Power BI (DAX, Power Query)</span>
+            <span class="skill-tag">Python (Pandas, NumPy, Scikit-learn)</span>
+            <span class="skill-tag">Azure Data Factory</span>
+            <span class="skill-tag">Azure Logic Apps</span>
+            <span class="skill-tag">Azure Databricks</span>
+            <span class="skill-tag">SQL (Azure, Oracle)</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Excel Power Query</span>
+            <span class="skill-tag">Project Management</span>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+        <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+        
+        <!-- Job 1 -->
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">United Breweries Limited</span>
+                <span class="item-date">July 2023 – Present</span>
+            </div>
+            <div class="item-subtitle">Data Analyst – Digital & Technology</div>
+            <ul>
+                <li>Engineered and automated scalable ETL pipelines using <span class="highlight">Azure Logic Apps & Data Factory</span>.</li>
+                <li>Developed <span class="highlight">‘Drishti’</span>, an inventory optimization tool reducing stockout risks using real-time data.</li>
+                <li>Led <span class="highlight">‘Data Brew’</span>, an organization-wide data democratization platform using Azure Databricks.</li>
+                <li>Built advanced forecasting models using <span class="highlight">Regression and Classification</span> for demand planning.</li>
+            </ul>
+            <div class="achievements-box">
+                <strong>Key Achievements:</strong>
+                <ul>
+                    <li>Achieved a <span class="highlight">95% reduction</span> in ETL processing time through automation.</li>
+                    <li>Cut reporting time by <span class="highlight">90%</span> via interactive Power BI dashboards.</li>
+                    <li>Improved glass bottle recovery from <span class="highlight">50% to 77%</span>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="item" style="margin-top: 30px;">
+            <div class="item-header">
+                <span class="item-title">Kirloskar Brothers Limited</span>
+                <span class="item-date">June 2019 – May 2020</span>
+            </div>
+            <div class="item-subtitle">Graduate Engineer Trainee – R&D</div>
+            <ul>
+                <li>Analyzed large datasets to identify optimum pump parameters for efficiency.</li>
+                <li>Automated parameter calculation using <span class="highlight">Excel Power Query</span>, streamlining workflows.</li>
+                <li>Implemented Lean manufacturing, 5’S, and Kaizen methodologies.</li>
+            </ul>
+            <div class="achievements-box">
+                <strong>Key Achievements:</strong>
+                <ul>
+                    <li>Achieved weight reduction of 15.8%, resulting in cost savings of <span class="highlight">17 LPA</span>.</li>
+                    <li>Reduced pump parameter calculation time by <span class="highlight">60%</span>.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+        <h2><i class="fas fa-graduation-cap"></i> Scholastic Record</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Degree</th>
+                    <th>Institute</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2023</td>
+                    <td>PGDIE</td>
+                    <td>IIM, Mumbai</td>
+                    <td>8.56/10 (Distinction)</td>
+                </tr>
+                <tr>
+                    <td>2019</td>
+                    <td>B.Tech (Mechanical)</td>
+                    <td>R.I.T, Sangli</td>
+                    <td>8.18/10 (Best Student)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Certifications & Others -->
+    <section>
+        <h2><i class="fas fa-certificate"></i> Certifications & Interests</h2>
+        <div class="skills-container" style="margin-bottom: 20px;">
+            <span class="skill-tag"><i class="fas fa-check-circle"></i> DP900 Azure Data Fundamentals</span>
+            <span class="skill-tag"><i class="fas fa-check-circle"></i> Data Analysis with Python</span>
+            <span class="skill-tag"><i class="fas fa-check-circle"></i> Business and Operations Analytics</span>
+        </div>
+        <p style="font-size: 0.9rem;"><strong>Other Interests:</strong> Swimming, Badminton</p>
+    </section>
+</div>
+
+<footer style="text-align: center; padding: 20px; color: var(--text-light); font-size: 0.8rem;">
+    &copy; 2023 Khaire Mayur Valmik | Digital CV
+</footer>
+
+</body>
+</html>
