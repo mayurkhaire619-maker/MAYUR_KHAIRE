@@ -3,367 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khaire Mayur Valmik | Data Analyst Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Khaire Mayur Valmik | Interactive CV</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --accent-color: #edf2f7;
-            --text-main: #2d3748;
-            --text-light: #718096;
-            --white: #ffffff;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-blue: #38bdf8;
+            --accent-green: #4ade80;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --nav-bg: rgba(15, 23, 42, 0.9);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f7fafc;
-            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: var(--white);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Header Section */
-        header {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 40px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .contact-info {
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-size: 0.9rem;
+            gap: 2rem;
         }
 
-        .contact-info a {
-            color: #cbd5e0;
+        .nav-container a {
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-info a:hover {
-            color: var(--white);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 30px 40px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        section:last-child {
-            border-bottom: none;
-        }
-
-        h2 {
-            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
             text-transform: uppercase;
-            font-size: 1.25rem;
-            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .nav-container a:hover, .nav-container a.active {
+            color: var(--accent-blue);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+        }
+
+        /* --- LAYOUT UTILS --- */
+        section {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-            border-left: 4px solid var(--secondary-color);
-            padding-left: 15px;
+            gap: 15px;
         }
 
-        /* Summary */
-        .summary-text {
-            font-size: 1.05rem;
-            color: var(--text-main);
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: rgba(255,255,255,0.1);
         }
 
-        /* Skills Tags */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        /* --- BENTO SKILLS GRID --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        .skill-tag {
-            background: var(--accent-color);
-            color: var(--primary-color);
-            padding: 6px 14px;
+        .skill-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
+        }
+
+        .skill-card h3 {
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* --- EXPERIENCE CARDS --- */
+        .exp-card {
+            background: var(--card-bg);
+            padding: 30px;
             border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            margin-bottom: 30px;
+            position: relative;
         }
 
-        /* Experience & Education */
-        .item {
-            margin-bottom: 25px;
-        }
-
-        .item-header {
+        .exp-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
         }
 
-        .item-title {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #2c5282;
+        .company-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
         }
 
-        .item-date {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        .item-subtitle {
+        .date-tag {
+            color: var(--accent-green);
             font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-
-        ul li::before {
-            content: "•";
-            color: var(--secondary-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .achievements-box {
-            background: #f0f7ff;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 10px;
-            border-left: 3px solid var(--secondary-color);
-        }
-
-        .highlight {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        /* Table Styling for Education */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
             font-size: 0.9rem;
         }
 
-        th {
-            background: var(--accent-color);
-            text-align: left;
-            padding: 12px;
+        .achievement-pill {
+            display: inline-block;
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--accent-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
         }
 
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #edf2f7;
-        }
-
-        /* Print Button */
-        .no-print {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .btn {
-            background: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        /* --- BUTTONS --- */
+        .cta-btn {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: var(--accent-blue);
+            color: #000;
             text-decoration: none;
-            font-weight: bold;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.3s;
         }
 
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-blue);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { gap: 1rem; flex-wrap: wrap; }
+            .hero h1 { font-size: 3rem; }
+            .exp-header { flex-direction: column; }
+        }
+
+        /* PRINT STYLES */
         @media print {
-            .no-print { display: none; }
-            body { background: white; }
-            .container { box-shadow: none; margin: 0; max-width: 100%; }
-        }
-
-        @media (max-width: 600px) {
-            .item-header { flex-direction: column; }
-            header { padding: 20px; }
-            section { padding: 20px; }
+            nav, .cta-btn, .hero { display: none; }
+            body { background: white; color: black; }
+            .exp-card { border: 1px solid #ccc; background: none; page-break-inside: avoid; }
+            .skill-card { background: none; border: 1px solid #ccc; }
         }
     </style>
 </head>
 <body>
 
-<div class="no-print">
-    <button class="btn" onclick="window.print()">Download as PDF / Print CV</button>
-</div>
+    <!-- Sticky Nav -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home">Home</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+        </div>
+    </nav>
 
-<div class="container">
-    <!-- Header -->
-    <header>
-        <h1>Khaire Mayur Valmik</h1>
-        <p style="margin-bottom: 15px; color: #a0aec0;">Data Analyst | ETL Developer | Visualization Expert</p>
-        <div class="contact-info">
-            <span><i class="fas fa-phone"></i> +91 7972310689</span>
-            <a href="mailto:mayurvalmik.khaire@gmail.com"><i class="fas fa-envelope"></i> mayurvalmik.khaire@gmail.com</a>
-            <span><i class="fas fa-map-marker-alt"></i> India</span>
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <h1 data-aos="zoom-in">Mayur Khaire</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Data Analyst specializing in <b>Azure, Databricks & Power BI</b>. Turning raw data into 95% efficiency gains and million-dollar insights.</p>
+        <div data-aos="fade-up" data-aos-delay="400">
+            <a href="mailto:mayurvalmik.khaire@gmail.com" class="cta-btn"><i class="fas fa-envelope"></i> Get In Touch</a>
         </div>
     </header>
 
-    <!-- Summary -->
-    <section>
-        <h2><i class="fas fa-user"></i> Professional Summary</h2>
-        <p class="summary-text">
-            Data Analyst with expertise in <strong>Azure SQL, Databricks, Power BI, and Python</strong>. 
-            Proven track record in automating ETL pipelines, building interactive dashboards, and delivering 
-            strategic insights for Sales, Supply Chain, and Marketing. Experienced in driving 
-            efficiency, cost savings, and revenue growth through data-driven decision-making.
-        </p>
-    </section>
-
-    <!-- Skills -->
-    <section>
-        <h2><i class="fas fa-tools"></i> Technical Expertise</h2>
-        <div class="skills-container">
-            <span class="skill-tag">Power BI (DAX, Power Query)</span>
-            <span class="skill-tag">Python (Pandas, NumPy, Scikit-learn)</span>
-            <span class="skill-tag">Azure Data Factory</span>
-            <span class="skill-tag">Azure Logic Apps</span>
-            <span class="skill-tag">Azure Databricks</span>
-            <span class="skill-tag">SQL (Azure, Oracle)</span>
-            <span class="skill-tag">Machine Learning</span>
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Excel Power Query</span>
-            <span class="skill-tag">Project Management</span>
-        </div>
-    </section>
-
     <!-- Experience -->
-    <section>
-        <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+    <section id="experience">
+        <h2 class="section-title" data-aos="fade-right"><i class="fas fa-briefcase"></i> Work Experience</h2>
         
-        <!-- Job 1 -->
-        <div class="item">
-            <div class="item-header">
-                <span class="item-title">United Breweries Limited</span>
-                <span class="item-date">July 2023 – Present</span>
+        <div class="exp-card" data-aos="fade-up">
+            <div class="exp-header">
+                <span class="company-name">United Breweries Limited</span>
+                <span class="date-tag">JULY 2023 – PRESENT</span>
             </div>
-            <div class="item-subtitle">Data Analyst – Digital & Technology</div>
-            <ul>
-                <li>Engineered and automated scalable ETL pipelines using <span class="highlight">Azure Logic Apps & Data Factory</span>.</li>
-                <li>Developed <span class="highlight">‘Drishti’</span>, an inventory optimization tool reducing stockout risks using real-time data.</li>
-                <li>Led <span class="highlight">‘Data Brew’</span>, an organization-wide data democratization platform using Azure Databricks.</li>
-                <li>Built advanced forecasting models using <span class="highlight">Regression and Classification</span> for demand planning.</li>
+            <p style="color: var(--accent-blue); font-weight: 600; margin-bottom: 10px;">Data Analyst – Digital & Technology</p>
+            <ul style="list-style: none; color: var(--text-secondary);">
+                <li><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> Automated ETL pipelines using <b>Azure Logic Apps & Data Factory</b>.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> Developed <b>'Drishti'</b> inventory tool to minimize stockouts.</li>
             </ul>
-            <div class="achievements-box">
-                <strong>Key Achievements:</strong>
-                <ul>
-                    <li>Achieved a <span class="highlight">95% reduction</span> in ETL processing time through automation.</li>
-                    <li>Cut reporting time by <span class="highlight">90%</span> via interactive Power BI dashboards.</li>
-                    <li>Improved glass bottle recovery from <span class="highlight">50% to 77%</span>.</li>
-                </ul>
-            </div>
+            <div class="achievement-pill">Achieved 95% reduction in ETL processing time</div>
         </div>
 
-        <!-- Job 2 -->
-        <div class="item" style="margin-top: 30px;">
-            <div class="item-header">
-                <span class="item-title">Kirloskar Brothers Limited</span>
-                <span class="item-date">June 2019 – May 2020</span>
+        <div class="exp-card" data-aos="fade-up">
+            <div class="exp-header">
+                <span class="company-name">Kirloskar Brothers Limited</span>
+                <span class="date-tag">2019 – 2020</span>
             </div>
-            <div class="item-subtitle">Graduate Engineer Trainee – R&D</div>
-            <ul>
-                <li>Analyzed large datasets to identify optimum pump parameters for efficiency.</li>
-                <li>Automated parameter calculation using <span class="highlight">Excel Power Query</span>, streamlining workflows.</li>
-                <li>Implemented Lean manufacturing, 5’S, and Kaizen methodologies.</li>
-            </ul>
-            <div class="achievements-box">
-                <strong>Key Achievements:</strong>
-                <ul>
-                    <li>Achieved weight reduction of 15.8%, resulting in cost savings of <span class="highlight">17 LPA</span>.</li>
-                    <li>Reduced pump parameter calculation time by <span class="highlight">60%</span>.</li>
-                </ul>
+            <p style="color: var(--accent-blue); font-weight: 600; margin-bottom: 10px;">Graduate Engineer Trainee – R&D</p>
+            <div class="achievement-pill">Cost savings of 17 LPA via part integration</div>
+        </div>
+    </section>
+
+    <!-- Skills Bento Grid -->
+    <section id="skills">
+        <h2 class="section-title" data-aos="fade-right"><i class="fas fa-code"></i> Technical Stack</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="flip-left">
+                <h3><i class="fas fa-chart-pie"></i> Visualization</h3>
+                <p>Power BI (DAX), Figma, Interactive Dashboards</p>
+            </div>
+            <div class="skill-card" data-aos="flip-left" data-aos-delay="100">
+                <h3><i class="fas fa-cloud"></i> Cloud & SQL</h3>
+                <p>Azure SQL, Oracle, Databricks, Data Factory</p>
+            </div>
+            <div class="skill-card" data-aos="flip-left" data-aos-delay="200">
+                <h3><i class="fas fa-robot"></i> Programming</h3>
+                <p>Python (Pandas, Scikit-learn), ML Fundamentals</p>
+            </div>
+            <div class="skill-card" data-aos="flip-left" data-aos-delay="300">
+                <h3><i class="fas fa-bolt"></i> Automation</h3>
+                <p>Power Automate, Logic Apps, Power Apps</p>
             </div>
         </div>
     </section>
 
     <!-- Education -->
-    <section>
-        <h2><i class="fas fa-graduation-cap"></i> Scholastic Record</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Year</th>
-                    <th>Degree</th>
-                    <th>Institute</th>
-                    <th>Result</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2023</td>
-                    <td>PGDIE</td>
-                    <td>IIM, Mumbai</td>
-                    <td>8.56/10 (Distinction)</td>
-                </tr>
-                <tr>
-                    <td>2019</td>
-                    <td>B.Tech (Mechanical)</td>
-                    <td>R.I.T, Sangli</td>
-                    <td>8.18/10 (Best Student)</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <!-- Certifications & Others -->
-    <section>
-        <h2><i class="fas fa-certificate"></i> Certifications & Interests</h2>
-        <div class="skills-container" style="margin-bottom: 20px;">
-            <span class="skill-tag"><i class="fas fa-check-circle"></i> DP900 Azure Data Fundamentals</span>
-            <span class="skill-tag"><i class="fas fa-check-circle"></i> Data Analysis with Python</span>
-            <span class="skill-tag"><i class="fas fa-check-circle"></i> Business and Operations Analytics</span>
+    <section id="education">
+        <h2 class="section-title" data-aos="fade-right"><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="exp-card" data-aos="fade-up">
+            <p><strong>PGDIE</strong> | IIM, Mumbai (2023)</p>
+            <p style="color: var(--text-secondary);">Result: 8.56/10 (Distinction)</p>
         </div>
-        <p style="font-size: 0.9rem;"><strong>Other Interests:</strong> Swimming, Badminton</p>
+        <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
+            <p><strong>B.Tech (Mechanical)</strong> | R.I.T, Sangli (2019)</p>
+            <p style="color: var(--text-secondary);">Best Outgoing Student Award</p>
+        </div>
     </section>
-</div>
 
-<footer style="text-align: center; padding: 20px; color: var(--text-light); font-size: 0.8rem;">
-    &copy; 2023 Khaire Mayur Valmik | Digital CV
-</footer>
+    <footer style="text-align: center; padding: 40px; color: var(--text-secondary); border-top: 1px solid rgba(255,255,255,0.05);">
+        Built for 2025 Recruiters | Mayur Khaire
+    </footer>
 
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Simple Scrollspy for Nav Highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section, header');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            const navLinks = document.querySelectorAll('.nav-container a');
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
