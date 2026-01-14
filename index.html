@@ -236,6 +236,7 @@
 
 <body>
 
+<!-- NAV -->
 <nav>
     <div class="nav-container">
         <a href="#home">Home</a>
@@ -245,6 +246,7 @@
     </div>
 </nav>
 
+<!-- HERO -->
 <header class="hero" id="home">
     <img src="photo.jpg" alt="Mayur Khaire" class="profile-photo" data-aos="fade-down">
     <h1 data-aos="zoom-in">Mayur Khaire</h1>
@@ -257,7 +259,61 @@
     </a>
 </header>
 
-<!-- AOS -->
+<!-- EXPERIENCE -->
+<section id="experience">
+    <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+
+    <div class="exp-card" data-aos="fade-up">
+        <div class="exp-header">
+            <span class="company-name">United Breweries Limited</span>
+            <span class="date-tag">JULY 2023 – PRESENT</span>
+        </div>
+        <p style="color: var(--accent-blue); font-weight: 600;">Data Analyst – Digital & Technology</p>
+        <ul style="list-style:none; color:var(--text-secondary);">
+            <li>✔ Automated ETL pipelines using Azure Logic Apps & Data Factory</li>
+            <li>✔ Cut reporting time by 90% with Power BI dashboards</li>
+            <li>✔ Drove analytics adoption across 500+ users</li>
+        </ul>
+        <div class="achievement-pill">95% ETL time reduction</div>
+    </div>
+
+    <div class="exp-card" data-aos="fade-up">
+        <div class="exp-header">
+            <span class="company-name">Kirloskar Brothers Limited</span>
+            <span class="date-tag">2019 – 2020</span>
+        </div>
+        <p style="color: var(--accent-blue); font-weight: 600;">Graduate Engineer Trainee – R&D</p>
+        <ul style="list-style:none; color:var(--text-secondary);">
+            <li>✔ Implemented TPM, Kaizen, Lean Manufacturing</li>
+            <li>✔ Automated pump parameter calculations using Power Query</li>
+            <li>✔ Reduced calculation time by 60%</li>
+        </ul>
+        <div class="achievement-pill">17 LPA cost savings</div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 class="section-title"><i class="fas fa-code"></i> Technical Stack</h2>
+    <div class="skills-grid">
+        <div class="skill-card">Power BI, DAX, Dashboards</div>
+        <div class="skill-card">Azure SQL, Databricks, ADF</div>
+        <div class="skill-card">Python, Pandas, ML Basics</div>
+        <div class="skill-card">Power Automate, Logic Apps</div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+    <div class="exp-card">PGDIE | IIM Mumbai — 8.56 CGPA</div>
+    <div class="exp-card">B.Tech Mechanical | RIT Sangli</div>
+</section>
+
+<footer style="text-align:center; padding:30px; color:var(--text-secondary);">
+    Built for 2025 Recruiters | Mayur Khaire
+</footer>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 800, once: true });
