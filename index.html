@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khaire Mayur Valmik | Interactive CV</title>
-    
+
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -68,13 +68,14 @@
             letter-spacing: 1px;
         }
 
-        .nav-container a:hover, .nav-container a.active {
+        .nav-container a:hover,
+        .nav-container a.active {
             color: var(--accent-blue);
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 80vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -82,6 +83,16 @@
             text-align: center;
             background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
             padding: 0 20px;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-blue);
+            margin-bottom: 25px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
         }
 
         .hero h1 {
@@ -99,7 +110,7 @@
             max-width: 700px;
         }
 
-        /* --- LAYOUT UTILS --- */
+        /* --- LAYOUT --- */
         section {
             max-width: 1000px;
             margin: 80px auto;
@@ -121,7 +132,7 @@
             background: rgba(255,255,255,0.1);
         }
 
-        /* --- BENTO SKILLS GRID --- */
+        /* --- SKILLS GRID --- */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -145,16 +156,14 @@
         .skill-card h3 {
             color: var(--accent-blue);
             margin-bottom: 10px;
-            font-size: 1.1rem;
         }
 
-        /* --- EXPERIENCE CARDS --- */
+        /* --- EXPERIENCE --- */
         .exp-card {
             background: var(--card-bg);
             padding: 30px;
             border-radius: 20px;
             margin-bottom: 30px;
-            position: relative;
         }
 
         .exp-header {
@@ -167,7 +176,6 @@
         .company-name {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--text-primary);
         }
 
         .date-tag {
@@ -186,7 +194,7 @@
             margin-top: 10px;
         }
 
-        /* --- BUTTONS --- */
+        /* --- BUTTON --- */
         .cta-btn {
             margin-top: 30px;
             padding: 12px 30px;
@@ -195,8 +203,8 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
-            display: inline-block;
             transition: 0.3s;
+            display: inline-block;
         }
 
         .cta-btn:hover {
@@ -205,144 +213,55 @@
         }
 
         @media (max-width: 768px) {
-            .nav-container { gap: 1rem; flex-wrap: wrap; }
-            .hero h1 { font-size: 3rem; }
-            .exp-header { flex-direction: column; }
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+            .exp-header {
+                flex-direction: column;
+            }
         }
 
-        /* PRINT STYLES */
         @media print {
-            nav, .cta-btn, .hero { display: none; }
-            body { background: white; color: black; }
-            .exp-card { border: 1px solid #ccc; background: none; page-break-inside: avoid; }
-            .skill-card { background: none; border: 1px solid #ccc; }
+            nav, .cta-btn, .hero {
+                display: none;
+            }
+            body {
+                background: white;
+                color: black;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Sticky Nav -->
-    <nav>
-        <div class="nav-container">
-            <a href="#home">Home</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-        </div>
-    </nav>
+<nav>
+    <div class="nav-container">
+        <a href="#home">Home</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <header class="hero" id="home">
-        <h1 data-aos="zoom-in">Mayur Khaire</h1>
-        <p data-aos="fade-up" data-aos-delay="200">Data Analyst specializing in <b>Azure, Databricks & Power BI</b>. Turning raw data into 95% efficiency gains and million-dollar insights.</p>
-        <div data-aos="fade-up" data-aos-delay="400">
-            <a href="mailto:mayurvalmik.khaire@gmail.com" class="cta-btn"><i class="fas fa-envelope"></i> Get In Touch</a>
-        </div>
-    </header>
+<header class="hero" id="home">
+    <img src="photo.jpg" alt="Mayur Khaire" class="profile-photo" data-aos="fade-down">
+    <h1 data-aos="zoom-in">Mayur Khaire</h1>
+    <p data-aos="fade-up" data-aos-delay="200">
+        Data Analyst specializing in <b>Azure, Databricks & Power BI</b>.
+        Turning raw data into 95% efficiency gains and million-dollar insights.
+    </p>
+    <a href="mailto:mayurvalmik.khaire@gmail.com" class="cta-btn" data-aos="fade-up" data-aos-delay="400">
+        <i class="fas fa-envelope"></i> Get In Touch
+    </a>
+</header>
 
-    <!-- Experience -->
-    <section id="experience">
-        <h2 class="section-title" data-aos="fade-right"><i class="fas fa-briefcase"></i> Work Experience</h2>
-        
-        <div class="exp-card" data-aos="fade-up">
-            <div class="exp-header">
-                <span class="company-name">United Breweries Limited</span>
-                <span class="date-tag">JULY 2023 – PRESENT</span>
-            </div>
-            <p style="color: var(--accent-blue); font-weight: 600; margin-bottom: 10px;">Data Analyst – Digital & Technology</p>
-            <ul style="list-style: none; color: var(--text-secondary);">
-                <li><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> Automated ETL pipelines using <b>Azure Logic Apps & Data Factory</b>.</li>
-                <li><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> Cut reporting time by 90% through the deployment of interactive Power BI dashboards.</li>
-                <li><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> Partnered with senior leadership to shape the analytics roadmap and owned enterprise-wide initiatives, driving adoption 
-across 500+ users and influencing CXO-level decision-making. </li>
-            </ul>
-            <div class="achievement-pill">Achieved 95% reduction in ETL processing time</div>
-        </div>
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+</script>
 
-        <div class="exp-card" data-aos="fade-up">
-            <div class="exp-header">
-                <span class="company-name">Kirloskar Brothers Limited</span>
-                <span class="date-tag">2019 – 2020</span>
-            </div>
-            <p style="color: var(--accent-blue); font-weight: 600; margin-bottom: 10px;">Graduate Engineer Trainee – R&D</p>
-            <ul style="list-style: none; color: var(--text-secondary);">
-                <li><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> Implemented Total Productivity Maintenance (TPM), 5’S, Kaizen, and lean manufacturing in a GEMBA .</li>
-                <li><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> Automated the process of calculation of pump parameters using Excel Power Query, streamlining workflows.</li>
-                <li><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> Reduced pump parameter calculation time by 60% by automating manual processes using Power Query. </li>
-            </ul>
-            <div class="achievement-pill">Cost savings of 17 LPA via part integration</div>
-        </div>
-    </section>
-
-    <!-- Skills Bento Grid -->
-    <section id="skills">
-        <h2 class="section-title" data-aos="fade-right"><i class="fas fa-code"></i> Technical Stack</h2>
-        <div class="skills-grid">
-            <div class="skill-card" data-aos="flip-left">
-                <h3><i class="fas fa-chart-pie"></i> Visualization</h3>
-                <p>Power BI (DAX), Figma, Interactive Dashboards</p>
-            </div>
-            <div class="skill-card" data-aos="flip-left" data-aos-delay="100">
-                <h3><i class="fas fa-cloud"></i> Cloud & SQL</h3>
-                <p>Azure SQL, Oracle, Databricks, Data Factory</p>
-            </div>
-            <div class="skill-card" data-aos="flip-left" data-aos-delay="200">
-                <h3><i class="fas fa-robot"></i> Programming</h3>
-                <p>Python (Pandas, Scikit-learn), ML Fundamentals</p>
-            </div>
-            <div class="skill-card" data-aos="flip-left" data-aos-delay="300">
-                <h3><i class="fas fa-bolt"></i> Automation</h3>
-                <p>Power Automate, Logic Apps, Power Apps</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-        <h2 class="section-title" data-aos="fade-right"><i class="fas fa-graduation-cap"></i> Education</h2>
-        <div class="exp-card" data-aos="fade-up">
-            <p><strong>PGDIE</strong> | IIM, Mumbai (2023)</p>
-            <p style="color: var(--text-secondary);">Result: 8.56/10 (Distinction)</p>
-        </div>
-        <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
-            <p><strong>B.Tech (Mechanical)</strong> | R.I.T, Sangli (2019)</p>
-            <p style="color: var(--text-secondary);">Best Outgoing Student Award</p>
-        </div>
-    </section>
-
-    <footer style="text-align: center; padding: 40px; color: var(--text-secondary); border-top: 1px solid rgba(255,255,255,0.05);">
-        Built for 2025 Recruiters | Mayur Khaire
-    </footer>
-
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize Animations
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        // Simple Scrollspy for Nav Highlighting
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section, header');
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            const navLinks = document.querySelectorAll('.nav-container a');
-            navLinks.forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
-
